@@ -1,0 +1,29 @@
+# 适用于dotnet 5的构建和单元测试 gitlab ci 脚本
+image: registry.cn-shenzhen.aliyuncs.com/dotnet-vincent/sdk:5.0 
+
+variables:
+  SOLUTION_FILE_PATH: './src/'
+
+stages:
+  - build
+  - test
+
+before_script:
+  - dotnet restore $SOLUTION_FILE_PATH
+
+build:
+  stage: build
+
+  script:
+  #- ls
+  #- echo $CI_JOB_ID
+  #- echo $env:PATH
+  #- echo $CI_PROJECT_PATH
+    - dotnet build $SOLUTION_FILE_PATH --no-restore
+
+test:
+  stage: test
+  script:
+    - dotnet test $SOLUTION_FILE_PATH --no-restore
+
+# 系统变量列表：https://docs.gitlab.com/ee/ci/variables/README.html#gitlab-ciyml-defined-variables

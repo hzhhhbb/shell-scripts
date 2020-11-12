@@ -6,7 +6,8 @@ web:
     GITLAB_OMNIBUS_CONFIG: |
       external_url 'http://172.21.23.33'
       # Add any other gitlab.rb configuration here, each on its own line
-      # for example : gitlab_rails['gitlab_shell_ssh_port'] = 2224
+      gitlab_rails['gitlab_ssh_host'] = '172.21.23.33'
+      gitlab_rails['gitlab_shell_ssh_port'] = 26013
   ports:
     - '80:80'
     - '443:443'
