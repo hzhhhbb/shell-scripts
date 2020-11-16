@@ -1,12 +1,13 @@
 web:
   image: 'gitlab/gitlab-ce:latest'
+  name: gitlab
   restart: always
-  hostname: '172.21.23.33'
+  hostname: '172.21.23.120'
   environment:
     GITLAB_OMNIBUS_CONFIG: |
-      external_url 'http://172.21.23.33'
+      external_url 'http://172.21.23.120'
       # Add any other gitlab.rb configuration here, each on its own line
-      gitlab_rails['gitlab_ssh_host'] = '172.21.23.33'
+      gitlab_rails['gitlab_ssh_host'] = '172.21.23.120'
       gitlab_rails['gitlab_shell_ssh_port'] = 26013
   ports:
     - '80:80'
